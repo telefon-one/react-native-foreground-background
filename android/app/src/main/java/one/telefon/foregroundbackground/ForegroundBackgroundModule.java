@@ -1,6 +1,7 @@
 package one.telefon.foregroundbackground;
 
 import android.app.Activity;
+import android.app.Service;
 
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,10 +28,17 @@ public class ForegroundBackgroundModule extends ReactContextBaseJavaModule {
 
     private static String LOG = "telefon.one.foregroundbackground.ForegroundBackgroundModule";
     private PowerManager mPowerManager;
-
+    private HandlerThread mWorkerThread;
+    private Handler mHandler;
+    
     public ForegroundBackgroundModule(ReactApplicationContext context) {
         super(context);
         mContext=context;
+
+        mWorkerThread = new HandlerThread(getClass().getSimpleName(), Process.THREAD_PRIORITY_FOREGROUND);
+        mWorkerThread.setPriority(Thread.MAX_PRIORITY);
+        mWorkerThread.start();
+        mHandler = new Handler(mWorkerThread.getLooper());
     }
     
     @Override
@@ -82,6 +90,11 @@ public class ForegroundBackgroundModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void toBackground() {
+    }
+
+
+    private void job(Runnable job) {
+        mHandler.post(job);
     }
 }
 
