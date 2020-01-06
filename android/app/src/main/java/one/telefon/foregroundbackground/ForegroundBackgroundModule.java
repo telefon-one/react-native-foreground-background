@@ -18,7 +18,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-
+import android.os.PowerManager;
 
 
 
@@ -50,15 +50,15 @@ public class ForegroundBackgroundModule extends ReactContextBaseJavaModule {
         Boolean mAppHidden = true;
         if (mAppHidden) {
             try {
-                String ns = getApplicationContext().getPackageName();
+                String ns = mContext.getPackageName();
                 String cls = ns + ".MainActivity";
 
-                Intent intent = new Intent(getApplicationContext(), Class.forName(cls));
+                Intent intent = new Intent(mContext, Class.forName(cls));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.EXTRA_DOCK_STATE_CAR);
                 intent.addCategory(Intent.CATEGORY_LAUNCHER);
                 intent.putExtra("foreground", true);
 
-                startActivity(intent);
+                mContext.startActivity(intent);
             } catch (Exception e) {
                 Log.w(LOG_TAG, "Failed to open application on received call", e);
             }

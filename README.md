@@ -15,29 +15,23 @@
 
 ## Examples
 
-- [Android]Simple example (https://github.com/telefon-one/react-native-replace-dialer/blob/master/examples/) 
+- [Android]Simple example (https://github.com/telefon-one/react-native-foreground-background/blob/master/examples/) 
 - [Google.Play] TODO
 
 
 ## Installation
 
-- [Android](https://github.com/telefon-one/react-native-replace-dialer/blob/master/docs/installation_android.md)
+- [Android](https://github.com/telefon-one/react-native-foreground-background/blob/master/docs/installation_android.md)
 
 ## Usage
 
 ```javascript
-    import {ReplaceDialer} from 'react-native-replace-dialer';
+    import {ForegroundBackground} from 'react-native-foreground-background';
 
-    let tReplaceDialer = new ReplaceDialer();
+    let tForegroundBackground = new ForegroundBackground();
 
-    if (!tReplaceDialer.isDefault()) {
-      console.log('Is NOT default dialer, try to set.');
-      if (tReplaceDialer.setDefault()) {
-        console.log('Default dialer sucessfully set.');
-      } else {
-        console.log('Default dialer NOT set');
-      }
-    }
+    ForegroundBackground.toBackground();
+    ForegroundBackground.toForeground();
     
 ```
 
