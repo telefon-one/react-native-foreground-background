@@ -1,4 +1,4 @@
-package one.telefon.replacedialer;
+package one.telefon.foregroundbackground;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ReplaceDialerModulePackage implements ReactPackage {
+public class ForegroundBackgroundModulePackage implements ReactPackage {
 
-    public ReplaceDialerModulePackage() {
+    public ForegroundBackgroundModulePackage() {
 
     }
 
@@ -22,7 +22,7 @@ public class ReplaceDialerModulePackage implements ReactPackage {
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
-        modules.add(new ReplaceDialerModule(reactContext));
+        modules.add(new ForegroundBackgroundModule(reactContext));
         return modules;
     }
 

@@ -17,23 +17,17 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {ReplaceDialer} from 'react-native-replace-dialer';
+import {ForegroundBackground} from 'react-native-foreground-background';
 
 export default class App extends Component {
   constructor() {
     super();
   }
   async componentDidMount() {
-    let tReplaceDialer = new ReplaceDialer();
+    let tForegroundBackground = new ForegroundBackground();
 
-    if (!tReplaceDialer.isDefault()) {
-      console.log('Is NOT default dialer, try to set.');
-      if (tReplaceDialer.setDefault()) {
-        console.log('Default dialer sucessfully set.');
-      } else {
-        console.log('Default dialer NOT set');
-      }
-    }
+    ForegroundBackground.toBackground();
+    ForegroundBackground.toForeground();
   }
 
   render() {
