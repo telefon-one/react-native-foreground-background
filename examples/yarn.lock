@@ -5025,7 +5025,7 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
 
 "react-native-foreground-background@https://github.com/telefon-one/react-native-foreground-background/":
   version "0.0.2"
-  resolved "https://github.com/telefon-one/react-native-foreground-background/#a9f52fcb42a6b94a4009e2e5cc659e85bfd3b8e4"
+  resolved "https://github.com/telefon-one/react-native-foreground-background/#3c68c8daa250f04b0788a75a5b43ae8c0b368d91"
 
 react-native@0.61.5:
   version "0.61.5"

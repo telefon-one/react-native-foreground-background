@@ -11,6 +11,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import android.os.Process;
+
 import com.facebook.react.bridge.*;
 import com.facebook.react.ReactActivity;
 
@@ -30,7 +32,7 @@ public class ForegroundBackgroundModule extends ReactContextBaseJavaModule {
     private PowerManager mPowerManager;
     private HandlerThread mWorkerThread;
     private Handler mHandler;
-    
+
     public ForegroundBackgroundModule(ReactApplicationContext context) {
         super(context);
         mContext=context;
