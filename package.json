@@ -2,7 +2,7 @@
   "name": "react-native-foreground-background",
   "main": "index.js",
   "description": "Foreground and Background for Reac-native",
-  "version": "0.0.8",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/telefon-one/react-native-foreground-background.git"
