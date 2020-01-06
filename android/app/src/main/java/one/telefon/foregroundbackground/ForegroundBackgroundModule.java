@@ -26,6 +26,7 @@ public class ForegroundBackgroundModule extends ReactContextBaseJavaModule {
     ReactApplicationContext mContext;
 
     private static String LOG = "telefon.one.foregroundbackground.ForegroundBackgroundModule";
+    private PowerManager mPowerManager;
 
     public ForegroundBackgroundModule(ReactApplicationContext context) {
         super(context);
@@ -60,7 +61,7 @@ public class ForegroundBackgroundModule extends ReactContextBaseJavaModule {
 
                 mContext.startActivity(intent);
             } catch (Exception e) {
-                Log.w(LOG_TAG, "Failed to open application on received call", e);
+                Log.w(LOG, "Failed to open application on received call", e);
             }
         }
 
@@ -68,6 +69,8 @@ public class ForegroundBackgroundModule extends ReactContextBaseJavaModule {
             @Override
             public void run() {
                 // Brighten screen at least 10 seconds
+                mPowerManager = (PowerManager) mContext.getSystemService(POWER_SERVICE);
+
                 PowerManager.WakeLock wl = mPowerManager.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP
                         | PowerManager.ON_AFTER_RELEASE | PowerManager.FULL_WAKE_LOCK, "incoming_call");
                 wl.acquire(10000);
